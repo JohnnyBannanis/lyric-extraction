@@ -55,12 +55,13 @@ for i in songs:
 #    output_file.write(i[0])
 #    output_file.write("\n")
 
+#separate title, autor, and lyric apart for each song
 apart = []
 for i in out:
     words = i[0].split()
     title = ""
     autor = ""
-    aux = {}
+    aux = {}#save the data as an object (Dictionary)
     for word in words:
         if(word.isupper()):
             if( len(word)==2 and word[1]!= "."):
@@ -86,10 +87,5 @@ for i in out:
     apart.append(aux)
 
 #output.json
-#output_file = open("./output/output.json","w",encoding="utf-8")
-#for i in apart:
-#    output_file.write(str(i))
-#    output_file.write(",")
-
 with open("./output/output.json", "w", encoding="utf-8") as outfile:  
     json.dump(apart, outfile) 
